@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Dashboard • Evergreen School</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="header glass">
+    <div class="container nav-wrapper">
+      <a href="index.html" class="brand">
+        <img src="images/logo.svg" alt="School Logo" class="brand-logo" />
+        <span class="brand-name">Evergreen Public School</span>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">☰</button>
+      <nav class="nav" id="navMenu">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="student-login.html" class="nav-link">Logout</a>
+        <label class="switch" title="Toggle dark mode">
+          <input type="checkbox" id="themeSwitch" />
+          <span class="slider"></span>
+        </label>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page">
+    <section class="container">
+      <h1 class="section-title" id="studentName">Student Dashboard</h1>
+      <div class="grid2">
+        <div class="card glass">
+          <div class="card-body">
+            <h3>Profile</h3>
+            <p><strong>Roll:</strong> <span id="profileRoll"></span></p>
+            <p><strong>Class:</strong> <span id="profileClass"></span></p>
+            <p><strong>Parent:</strong> <span id="profileParent"></span></p>
+          </div>
+        </div>
+        <div class="card glass">
+          <div class="card-body">
+            <h3>Attendance & Performance</h3>
+            <p><strong>Attendance:</strong> <span id="attendanceValue"></span>%</p>
+            <p><strong>Overall Performance:</strong> <span id="performanceValue"></span></p>
+            <p><strong>Teacher Feedback:</strong> <span id="feedbackValue"></span></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card glass">
+        <div class="card-body">
+          <h3>Academic Progress</h3>
+          <div class="table-responsive">
+            <table class="table" id="progressTableView">
+              <thead>
+                <tr>
+                  <th>Subject</th>
+                  <th>Marks</th>
+                  <th>Term</th>
+                  <th>Remarks</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="card glass">
+        <div class="card-body">
+          <h3>Notes from School</h3>
+          <p id="notesValue" class="muted"></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/main.js"></script>
+  <script src="js/student.js"></script>
+</body>
+</html>

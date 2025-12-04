@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Dashboard • Evergreen School</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/admin.css" />
+</head>
+<body class="admin-bg">
+  <header class="header glass">
+    <div class="container nav-wrapper">
+      <a href="index.html" class="brand">
+        <img src="images/logo.svg" alt="School Logo" class="brand-logo" />
+        <span class="brand-name">Evergreen Admin</span>
+      </a>
+      <nav class="nav">
+        <a href="index.html" class="btn">Home</a>
+        <button id="logoutBtn" class="btn">Logout</button>
+        <label class="switch" title="Toggle dark mode">
+          <input type="checkbox" id="themeSwitch" />
+          <span class="slider"></span>
+        </label>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page">
+    <section class="container">
+      <div class="tabs">
+        <button class="tab active" id="tabHomeAdmin">Home Admin</button>
+        <button class="tab" id="tabStudentAdmin">Student Admin</button>
+      </div>
+    </section>
+
+    <section class="container admin-grid" id="homeAdminSection">
+      <div class="card glass">
+        <div class="card-body">
+          <h1 class="section-title">Welcome to Admin Page – Evergreen Public School</h1>
+        </div>
+      </div>
+      <div class="card glass">
+        <div class="card-body">
+          <h2>Announcement</h2>
+          <textarea id="announcementInput" rows="3" placeholder="Enter announcement"></textarea>
+          <button id="saveAnnouncement" class="btn btn-primary">Save</button>
+        </div>
+      </div>
+
+      <div class="card glass">
+        <div class="card-body">
+          <h2>Staff & Student Count</h2>
+          <div class="grid3">
+            <div class="form-group">
+              <label for="studentsInput">Total Students</label>
+              <input id="studentsInput" type="number" min="0" placeholder="0" />
+            </div>
+            <div class="form-group">
+              <label for="teachersInput">Total Teachers</label>
+              <input id="teachersInput" type="number" min="0" placeholder="0" />
+            </div>
+            <div class="form-group">
+              <label for="supportInput">Support Staff</label>
+              <input id="supportInput" type="number" min="0" placeholder="0" />
+            </div>
+          </div>
+          <button id="saveCounts" class="btn btn-primary">Save</button>
+        </div>
+      </div>
+
+      <div class="card glass">
+        <div class="card-body">
+          <h2>Gallery Management</h2>
+          <div class="grid3">
+            <div class="form-group">
+              <label for="galleryFileInput">Upload Image</label>
+              <input id="galleryFileInput" type="file" accept="image/*" />
+            </div>
+            <div class="form-group">
+              <label for="galleryCategoryInput">Category</label>
+              <select id="galleryCategoryInput">
+                <option>Achievements</option>
+                <option>Sports</option>
+                <option>Events</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>&nbsp;</label>
+              <button id="addImageBtn" class="btn btn-primary">Add Image</button>
+            </div>
+          </div>
+          <div id="galleryAdminList" class="grid4"></div>
+        </div>
+      </div>
+
+      <div class="card glass">
+        <div class="card-body">
+          <h2>Contact Form Messages</h2>
+          <div class="table-responsive">
+            <table class="table" id="messagesTable">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Phone</th>
+                  <th>Message</th>
+                  <th>Date</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="card glass">
+        <div class="card-body">
+          <h2>Password Management</h2>
+          <p class="muted">Last used passcode: <span id="lastPassMasked">********</span> <button id="revealPassBtn" class="btn">Show</button></p>
+          <div class="grid3">
+            <div class="form-group">
+              <label for="oldPassword">Current Password</label>
+              <input id="oldPassword" type="password" placeholder="Enter current password" />
+            </div>
+            <div class="form-group">
+              <label for="newPassword">New Password</label>
+              <input id="newPassword" type="password" placeholder="Enter new password" />
+            </div>
+            <div class="form-group">
+              <label for="confirmPassword">Confirm New Password</label>
+              <input id="confirmPassword" type="password" placeholder="Confirm new password" />
+            </div>
+          </div>
+          <button id="savePasswordBtn" class="btn btn-primary">Save Password</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="container admin-grid" id="studentAdminSection" style="display:none">
+      <div class="card glass">
+        <div class="card-body">
+          <h2>Student Credentials</h2>
+          <div class="grid3" style="margin-bottom:10px">
+            <div class="form-group">
+              <label for="searchRoll">Find by Roll</label>
+              <div style="display:flex; gap:8px">
+                <input id="searchRoll" type="text" placeholder="e.g. 2025-001" />
+                <button id="loadByRollBtn" class="btn">Load</button>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="classFilter">Filter by Class</label>
+              <div style="display:flex; gap:8px">
+                <select id="classFilter"><option value="">All</option></select>
+                <button id="clearClassFilter" class="btn">Clear</button>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>&nbsp;</label>
+              <div class="muted">Use tools to quickly locate and manage students</div>
+            </div>
+          </div>
+          <div class="grid3">
+            <div class="form-group">
+              <label for="stuRoll">Roll Number</label>
+              <input id="stuRoll" type="text" placeholder="e.g. 2025-001" />
+            </div>
+            <div class="form-group">
+              <label for="stuName">Student Name</label>
+              <input id="stuName" type="text" placeholder="Full name" />
+            </div>
+            <div class="form-group">
+              <label for="stuClass">Class</label>
+              <input id="stuClass" type="text" placeholder="Class/Grade" />
+            </div>
+          </div>
+          <div class="grid3">
+            <div class="form-group">
+              <label for="parentName">Parent Name</label>
+              <input id="parentName" type="text" placeholder="Parent/Guardian" />
+            </div>
+            <div class="form-group">
+              <label for="stuPassword">Student Password</label>
+              <input id="stuPassword" type="password" placeholder="Student password" />
+            </div>
+            <div class="form-group">
+              <label for="parentPassword">Parent Password</label>
+              <input id="parentPassword" type="password" placeholder="Parent password" />
+            </div>
+          </div>
+          <button id="saveStudentBtn" class="btn btn-primary">Save Student</button>
+        </div>
+      </div>
+      <div class="card glass">
+        <div class="card-body">
+          <h2>Students</h2>
+          <div class="grid3" style="margin-bottom:10px">
+            <div class="form-group">
+              <label for="classFilter">Filter by Class</label>
+              <input id="classFilter" type="text" placeholder="e.g. Grade 10" />
+            </div>
+            <div class="form-group">
+              <label>&nbsp;</label>
+              <button id="applyClassFilter" class="btn">Apply Filter</button>
+            </div>
+            <div class="form-group">
+              <label>&nbsp;</label>
+              <button id="clearClassFilter" class="btn">Clear</button>
+            </div>
+          </div>
+          <div id="studentsList" class="grid3"></div>
+        </div>
+      </div>
+      <div class="card glass" id="progressCard" style="display:none">
+        <div class="card-body">
+          <h2 id="progressTitle">Progress</h2>
+          <div class="grid3">
+            <div class="form-group">
+              <label for="progSubject">Subject</label>
+              <input id="progSubject" type="text" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <label for="progMarks">Marks</label>
+              <input id="progMarks" type="number" min="0" max="100" placeholder="e.g. 92" />
+            </div>
+            <div class="form-group">
+              <label for="progTerm">Term/Remark</label>
+              <input id="progTerm" type="text" placeholder="Term or notes" />
+            </div>
+          </div>
+          <div class="grid3">
+            <div class="form-group" style="grid-column: 1 / -1">
+              <label for="progRemarks">Remarks</label>
+              <input id="progRemarks" type="text" placeholder="Teacher remarks for this subject" />
+            </div>
+          </div>
+          <button id="addProgressBtn" class="btn">Add Progress</button>
+          <div class="table-responsive" style="margin-top:10px">
+            <table class="table" id="progressTable">
+              <thead>
+                <tr>
+                  <th>Subject</th>
+                  <th>Marks</th>
+                  <th>Term</th>
+                  <th>Remarks</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="card glass">
+        <div class="card-body">
+          <h2>Attendance & Performance</h2>
+          <div class="grid3">
+            <div class="form-group">
+              <label for="stuAttendance">Attendance (%)</label>
+              <input id="stuAttendance" type="number" min="0" max="100" placeholder="e.g. 95" />
+            </div>
+            <div class="form-group">
+              <label for="stuPerformance">Overall Performance</label>
+              <input id="stuPerformance" type="text" placeholder="e.g. Excellent / B+" />
+            </div>
+            <div class="form-group">
+              <label for="stuFeedback">Teacher Feedback</label>
+              <input id="stuFeedback" type="text" placeholder="General feedback" />
+            </div>
+          </div>
+          <div class="grid3">
+            <div class="form-group" style="grid-column: 1 / -1">
+              <label for="stuNotes">Admin Notes</label>
+              <textarea id="stuNotes" rows="3" placeholder="Notes shared with parents"></textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer glass">
+    <div class="container footer-grid">
+      <div>
+        <div class="brand mini">
+          <img src="images/logo.svg" class="brand-logo" alt="Logo" />
+          <span class="brand-name">Evergreen Admin</span>
+        </div>
+      </div>
+      <div>
+        <p>© <span id="year"></span> Evergreen Public School.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Login • Evergreen School</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/admin.css" />
+</head>
+<body class="admin-bg">
+  <label class="switch floating-theme" title="Toggle dark mode">
+    <input type="checkbox" id="themeSwitch" />
+    <span class="slider"></span>
+  </label>
+  <main class="page center">
+    <div class="card glass admin-login-card fade-in">
+      <div class="card-body">
+        <h1>Admin Login</h1>
+        <form id="loginForm" class="form">
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" placeholder="admin" required />
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" placeholder="Admin@123" required />
+          </div>
+          <button type="submit" class="btn btn-primary">Login</button>
+          <div id="loginError" class="error" style="display:none">Invalid Login Credentials</div>
+        </form>
+        <div style="margin-top:12px">
+          <a href="index.html" class="btn">Back to Home</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="js/admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Login • Evergreen School</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="header glass">
+    <div class="container nav-wrapper">
+      <a href="index.html" class="brand">
+        <img src="images/logo.svg" alt="School Logo" class="brand-logo" />
+        <span class="brand-name">Evergreen Public School</span>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">☰</button>
+      <nav class="nav" id="navMenu">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="admin-login.html" class="nav-link">Admin Login</a>
+        <label class="switch" title="Toggle dark mode">
+          <input type="checkbox" id="themeSwitch" />
+          <span class="slider"></span>
+        </label>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page page-center">
+    <div class="card glass admin-login-card fade-in" style="max-width:480px;width:92%">
+      <div class="card-body">
+        <h1>Student Login</h1>
+        <form id="studentLoginForm" class="form">
+          <div class="form-group">
+            <label for="studentRoll">Roll Number</label>
+            <input type="text" id="studentRoll" placeholder="e.g. 2025-001" required />
+          </div>
+          <div class="form-group">
+            <label for="studentPassword">Password</label>
+            <input type="password" id="studentPassword" placeholder="Password" required />
+          </div>
+          <button type="submit" class="btn btn-primary">Login</button>
+          <div id="studentLoginError" class="error" style="display:none">Invalid credentials</div>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <script src="js/main.js"></script>
+  <script src="js/student.js"></script>
+</body>
+</html>
